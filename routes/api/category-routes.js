@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+  // find 1 category
   Category.findOne({
     where: {
       id: req.params.id,
