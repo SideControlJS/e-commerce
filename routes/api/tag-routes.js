@@ -58,8 +58,22 @@ router.get('/:id', asyncHandler(async (req, res) => {
   }
 }));
 
-//DELETE a tag by its ID
 
+//DELETE a tag by its ID
+router.delete('/:id', asyncHandler(async (req, res) => {
+  const deleted - await Tag.destroy({
+    where: { id: req.params.id },
+  });
+
+  if (deleted) {
+    res.status(200).json({ message: 'Tag deleted!'});
+  } else {
+    res.status(404).json({ message: 'Tag not fount! :('});
+  }
+}));
+
+
+//General error handler
 
 
 
