@@ -37,7 +37,7 @@ router.get('/:id', asyncHandler(async (res, req) => {
 
 
 //POST a new tag
-// ADD IN EXAMPLE PAYLOAD
+// EXAMPLE POST payload
 /*{
   "tag_name": "Motorcycle"
 }*/ 
