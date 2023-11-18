@@ -37,6 +37,13 @@ router.get('/:id', asyncHandler(async (res, req) => {
 
 
 //POST a new tag
+// ADD IN EXAMPLE PAYLOAD
+
+router.post('/', asyncHandler(async (req, res) => {
+  const tag = await Tag.create(req.body);
+  res.status(201).json(tag);
+}));
+
 
 
 
