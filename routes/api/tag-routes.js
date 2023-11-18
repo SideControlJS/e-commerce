@@ -61,7 +61,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
 
 //DELETE a tag by its ID
 router.delete('/:id', asyncHandler(async (req, res) => {
-  const deleted - await Tag.destroy({
+  const deleted = await Tag.destroy({
     where: { id: req.params.id },
   });
 
@@ -74,7 +74,13 @@ router.delete('/:id', asyncHandler(async (req, res) => {
 
 
 //General error handler
-
+router.use((err, req, res, next) => {
+  console.errot(err);
+  res.status(500).json({
+    message: 'An error occurred! :(',
+    error: err.message
+  });
+});
 
 
 
