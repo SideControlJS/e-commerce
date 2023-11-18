@@ -19,6 +19,41 @@ router.get('/', asyncHandler(async (req, res) => {
 }));
 
 
+//GET a single tag by its ID
+router.get('/:id', asyncHandler(async (res, req) => {
+  const tag = await Tag.findAll({
+    where: { id: req.params.id },
+    include: [{
+      model: Product,
+      through: ProductTag,
+    }],
+  });
+  if (tag) {
+    res.status(200).json(tag);
+  } else {
+    res.status(404).json({ message: 'Tag not found! :('});
+  }
+}));
+
+
+//POST a new tag
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 router.get('/', (req, res) => {
