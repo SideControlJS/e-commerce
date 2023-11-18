@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { AccessDeniedError } = require('sequelize');
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
 
@@ -12,6 +13,21 @@ router.get('/', asyncHandler(async (req, res) => {
     include: [Category, { model: Tag, through: ProductTag }],
   });
   res.json(products);
+}));
+
+
+//GET one product by its ID
+router.get('/:id', asyncHandler(async (req, res) => {
+  const product = await Product.findOne({
+    where: { id: req.params.id },
+    include: [Category, { model: Tag, through: ProductTag }],
+  });
+
+  if (product) {
+    res.json(product);
+  } else {
+    res.status(404).json({ message: 'Product not found! :('});
+  }
 }));
 
 
