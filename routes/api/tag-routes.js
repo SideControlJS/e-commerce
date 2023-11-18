@@ -1,9 +1,26 @@
 const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
 
+// Middleware to handle exceptions inside of async express routes and passing them to the express error handlers
+const asyncHandler = (fn) => (req, res, next) =>
+  Promise.resolve(fn(req, res, next)).catch(next);
 
 // /api/tags endpoint
 
+//GET all tags
+router.get('/', asyncHandler(async (req, res) => {
+  const tags = await Tag.findAll({
+    include: [{
+      model: Product,
+      through: ProductTag,
+    }],
+  });
+  res.status(200).json(tags);
+}));
+
+
+
+/*
 router.get('/', (req, res) => {
   Tag.findAll({
     include: [
@@ -59,5 +76,7 @@ router.delete('/:id', (req, res) => {
     .then((tag) => res.status(200).json(tag))
     .catch((err) => res.status(404).json(err));
 });
+*/
+
 
 module.exports = router;
