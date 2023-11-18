@@ -67,35 +67,22 @@ router.delete('/:id', asyncHandler(async (req, res) => {
 }));
 
 
+// General error handler
+router.use((err, req, res, next) => {
+  console.errot(err);
+  res.status(500).json({
+    message: 'An error occurred! :(',
+    error: err.message
+  });
+});
+
+
+module.exports = router;
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// PREVIOUS CODE TO KEEP IN CASE ABOVE CODE HAS ISSUES
 
 
 // router.get('/', (req, res) => {
@@ -144,4 +131,4 @@ router.delete('/:id', asyncHandler(async (req, res) => {
 //     .catch((err) => res.status(400).json(err));
 // });
 
-// module.exports = router;
+
