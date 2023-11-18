@@ -45,6 +45,20 @@ router.post('/', asyncHandler(async (req, res) => {
 }));
 
 
+//PUT to update a tage by its ID
+router.get('/:id', asyncHandler(async (req, res) => {
+  const [affectedRows] = await Tag.update(req.body, {
+    where: { id: req.params.id },
+  });
+  
+  if (affectedRows > 0) {
+    res.status(200).json({ message: 'Tag updated' });
+  } else {
+    res.status(404).json({ message: 'Tag not fount! :('});
+  }
+}));
+
+//DELETE a tag by its ID
 
 
 
