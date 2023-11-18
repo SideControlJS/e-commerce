@@ -31,6 +31,20 @@ router.get('/:id', asyncHandler(async (req, res) => {
 }));
 
 
+//POST a new product
+router.post('/', asyncHandler(async (req, res) => {
+  const product = await Product.create(req.body);
+  if (req.body.tagIds && req.body.tagIds.length) {
+    const productTagIdArr = req.body.tagIds.map((tag_id) => ({
+      product_id: product.id,
+      tag_id,
+    }));
+    await ProductTag.bulkCreate(productTagIdArr);
+  }
+  res.status(200).json(product);
+}));
+
+
 
 
 
