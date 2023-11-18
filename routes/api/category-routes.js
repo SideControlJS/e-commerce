@@ -1,52 +1,131 @@
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
 
+// error handling middleware
+const asyncHandler = (fn) => (req, res, next) =>
+  Promise.resolve(fn(req, res, next)).catch(next);
+
+
 // The `/api/categories` endpoint
 
-router.get('/', (req, res) => {
-  Category.findAll({
+
+// GET all categories
+router.get('/', asyncHandler(async (req, res) => {
+  const categories = await Category.findAll({
     include: [Product],
-  })
-    .then((categories) => res.json(categories))
-    .catch((err) => res.status(500).json(err));
-});
+  });
+  res.json(categories);
+}));
 
-router.get('/:id', (req, res) => {
-  // find 1 category
-  Category.findOne({
+// GET one category by its 'id' value
+router.get('/:id', asyncHandler(async (req, res) => {
+  const category = await Category.findOne({
     where: {
       id: req.params.id,
     },
     include: [Product],
-  })
-    .then((category) => res.json(category))
-    .catch((err) => res.status(400).json(err));
-});
+  });
+  if (category) {
+    res.json(category);
+  } else {
+    res.status(404).json({ message: 'Category not found!'});
+  }
+}));
 
-router.post('/', (req, res) => {
-  Category.create(req.body)
-    .then((category) => res.status(200).json(category))
-    .catch((err) => res.status(400).json(err));
-});
+// POST a new category
+router.post('/', asyncHandler(async (req, res) => {
+  const category = await Category.create(req.body);
+  res.status(201).json(category);
+}));
 
-router.put('/:id', (req, res) => {
-  Category.update(req.body, {
+// PUT to update a category by its 'id' value
+router.put('/:id', asyncHandler(async (req, res) => {
+  const [affectedRows] = await Category.update(req.body, {
     where: {
       id: req.params.id,
     },
-  })
-    .then((category) => res.status(200).json(category))
-    .catch((err) => res.status(400).json(err));
-});
+  });
+  if (affectedRows > 0) {
+    res.status(200).json({ message: 'Category update' });
+  } else {
+    res.status(404).json({ message: 'Category not fount' });
+  }
+}));
 
-router.delete('/:id', (req, res) => {
-  Category.destroy({
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then((category) => res.status(200).json(category))
-    .catch((err) => res.status(400).json(err));
-});
 
-module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// router.get('/', (req, res) => {
+//   Category.findAll({
+//     include: [Product],
+//   })
+//     .then((categories) => res.json(categories))
+//     .catch((err) => res.status(500).json(err));
+// });
+
+// router.get('/:id', (req, res) => {
+//   // find 1 category
+//   Category.findOne({
+//     where: {
+//       id: req.params.id,
+//     },
+//     include: [Product],
+//   })
+//     .then((category) => res.json(category))
+//     .catch((err) => res.status(400).json(err));
+// });
+
+// router.post('/', (req, res) => {
+//   Category.create(req.body)
+//     .then((category) => res.status(200).json(category))
+//     .catch((err) => res.status(400).json(err));
+// });
+
+// router.put('/:id', (req, res) => {
+//   Category.update(req.body, {
+//     where: {
+//       id: req.params.id,
+//     },
+//   })
+//     .then((category) => res.status(200).json(category))
+//     .catch((err) => res.status(400).json(err));
+// });
+
+// router.delete('/:id', (req, res) => {
+//   Category.destroy({
+//     where: {
+//       id: req.params.id,
+//     },
+//   })
+//     .then((category) => res.status(200).json(category))
+//     .catch((err) => res.status(400).json(err));
+// });
+
+// module.exports = router;
