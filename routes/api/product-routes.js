@@ -45,6 +45,42 @@ router.post('/', asyncHandler(async (req, res) => {
 }));
 
 
+//PUT to update a product by its ID
+router.put('/:id', asyncHandler(async (req, res) => {
+  const [updatedRows] = await Product.update(req.body, {
+    where: { id: req.params.id },
+  });
+
+  if (updatedRows) {
+    const productTags = await ProductTag.findAll({
+      where: { product_id: req.params.id },
+    });
+
+    // Get list of current tag IDs
+    const productTagIds = productTags.map(({ tag_id }) => tag_id);
+
+    // Determine which tags need to be added/removed
+    const newProductTags = req.body.tagIds
+      .filter((tag_id) => !productTagIds.includes(tag_id))
+      .map((tag_id) => ({ product_id: req.params.id, tag_id }));
+
+    const productTagsToRemove = productTags
+      .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
+      .map(({ id }) => id);
+
+    // Execute add/remove operations
+    await Promise.all([
+      ProductTag.destroy({ where: { id: productTagsToRemove } }),
+      ProductTag.bulkCreate(newProductTags),
+    ]);
+
+    res.json({ message: 'Product updated' });
+  } else {
+    res.status(404).json({ message: 'Product not found' });
+  }
+}));
+
+
 
 
 
