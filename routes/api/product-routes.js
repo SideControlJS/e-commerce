@@ -81,6 +81,22 @@ router.put('/:id', asyncHandler(async (req, res) => {
 }));
 
 
+//DELETE a product by its ID
+router.delete('/:id', asyncHandler(async (req,res) => {
+  const deleted = await Product.destroy({
+    where: { id: req.params.id },
+  });
+
+  if (deleted) {
+    res.status(200).json({ message: 'Product deleted' });
+  } else {
+    res.status(404).json({ message: 'Product not found! :('});
+  }
+}));
+
+
+
+
 
 
 
