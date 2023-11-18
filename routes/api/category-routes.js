@@ -33,10 +33,17 @@ router.get('/:id', asyncHandler(async (req, res) => {
 }));
 
 // POST a new category
+
+/* PAYLOAD EXAMPLE FORMAT TO POST A NEW CATEGORY
+{
+  "category_name": "Jackets"
+}
+*/
 router.post('/', asyncHandler(async (req, res) => {
   const category = await Category.create(req.body);
   res.status(201).json(category);
 }));
+
 
 // PUT to update a category by its 'id' value
 router.put('/:id', asyncHandler(async (req, res) => {
