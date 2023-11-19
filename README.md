@@ -70,9 +70,9 @@ Ensure that you have MySQL installed and running before attempting to connect to
 ## Environment Variables
 
 Create a `.env` file in the root directory with the following variables:
-DB_NAME='ecommerce_db'
-DB_USER='your_mysql_username'
-DB_PW='your_mysql_password'
+- DB_NAME='ecommerce_db'
+- DB_USER='your_mysql_username'
+- DB_PW='your_mysql_password'
 
 
 ## Endpoints
