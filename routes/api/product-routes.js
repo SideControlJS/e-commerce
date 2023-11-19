@@ -46,6 +46,18 @@ router.post('/', asyncHandler(async (req, res) => {
 
 
 //PUT to update a product by its ID
+
+/*EXAMPLE PUT PAYLOAD:
+
+{
+  "product_name": "Plain T-Shirt",
+  "price": 10.99,
+  "stock": 10,
+  "category_id": 2,
+  "tagIds": [3, 4]
+}
+
+*/ 
 router.put('/:id', asyncHandler(async (req, res) => {
   const [updatedRows] = await Product.update(req.body, {
     where: { id: req.params.id },
