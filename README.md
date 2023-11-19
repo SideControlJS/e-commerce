@@ -62,11 +62,20 @@ DB_PW='your_mysql_password'
 
 - `GET /api/categories` - Retrieves all categories.
 - `GET /api/categories/:id` - Retrieves a category by ID.
+- `GET /api/products` - Retrieves all products.
+- `GET /api/products/:id` - Retrieves a product by ID.
+- `GET /api/tags` - Retrieves all product tags.
+- `GET /api/tags/:id` - Retrives a product tag by ID.
 - `POST /api/categories` - Creates a new category.
+- `POST /api/products` - Creates a new product.
+- `POST /api/tags` - Creates a new product tag.
 - `PUT /api/categories/:id` - Updates a category by ID.
+- `PUT /api/products/:id` - Updates a product by ID.
+- `PUT /api/tags/:id` - Updates a product tag by ID.
 - `DELETE /api/categories/:id` - Deletes a category by ID.
-  
-Repeat for products and tags...
+- `DELETE /api/products/:id` - Deletes a product by ID.
+- `DELETE /api/tags:/id` - Deltes a product tag by ID.
+
 
 ## Contributing
 
