@@ -1,5 +1,31 @@
 # E-Commerce Backend
 
+# Project Title
+<!-- Badges for build status -->
+![Build Status](https://img.shields.io/travis/SideControlJS/e-commerce/master.svg)
+
+<!-- Badges for version -->
+![GitHub package version](https://img.shields.io/github/package-json/v/SideControlJS/e-commerce.svg)
+
+<!-- Badges for license -->
+![License](https://img.shields.io/github/license/SideControlJS/e-commerce.svg)
+
+<!-- Badges for dependency status -->
+![Dependencies](https://img.shields.io/david/SideControlJS/e-commerce.svg)
+
+<!-- Badges for code size -->
+![Code Size](https://img.shields.io/github/languages/code-size/SideControlJS/e-commerce.svg)
+
+<!-- Badges for last commit -->
+![Last Commit](https://img.shields.io/github/last-commit/your-username/your-repo-name.svg)
+
+<!-- Badges for social -->
+![Stars](https://img.shields.io/github/stars/SideControlJS/e-commerce.svg?style=social)
+![Forks](https://img.shields.io/github/forks/SideControlJS/e-commerce.svg?style=social)
+![Watchers](https://img.shields.io/github/watchers/SideControlJS/e-commerce.svg?style=social)
+
+
+
 ## Description
 
 This e-commerce backend application serves as a hands-on project for learning Object-Relational Mapping (ORM) using Sequelize. It provides an API for managing an e-commerce site's products, categories, and tags. The application is built with Express.js and interfaces with a MySQL database, facilitating the performance of CRUD operations via RESTful endpoints.
@@ -78,7 +104,8 @@ DB_PW='your_mysql_password'
 
 
 ## Contributing
-
+<!-- Badges for contributors -->
+![Contributors](https://img.shields.io/github/contributors/SideControlJS/e-commerce.svg)
 To contribute to this project, please make a pull request or contact me.
 
 
