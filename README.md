@@ -1,260 +1,86 @@
-# 13 Object-Relational Mapping (ORM): E-Commerce Back End
+# E-Commerce Backend
 
-## Your Task
+## Description
 
-Internet retail, also known as **e-commerce**, plays a significant role within the electronics industry, as it empowers businesses and consumers alike to conveniently engage in online buying and selling of electronic products. In the latest available data from 2021, the industry in the United States alone was estimated to have generated the substantial amount of US$2.54 trillion, according to the United Nations Conference on Trade and Development. E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to the prevalence of these platforms, developers should understand the fundamental architecture of e-commerce sites.
+This e-commerce backend application serves as a hands-on project for learning Object-Relational Mapping (ORM) using Sequelize. It provides an API for managing an e-commerce site's products, categories, and tags. The application is built with Express.js and interfaces with a MySQL database, facilitating the performance of CRUD operations via RESTful endpoints.
 
-Your task is to build the back end for an e-commerce site by modifying starter code. You’ll configure a working Express.js API to use Sequelize to interact with a MySQL database.
+Throughout the development process, Insomnia REST Client was utilized extensively to test API routes, ensuring that the backend functionality met the required specifications for handling web requests effectively.
 
-Because this application won’t be deployed, you’ll also need to provide a link to a walkthrough video that demonstrates its functionality and all of the acceptance criteria being met. You’ll need to submit a link to the video and add it to the readme of your project.
+By leveraging the ORM approach, this project demonstrates the efficient management of database schemas and streamlines the process of querying and manipulating data in a relational database.
 
-## User Story
+Watch the demo video here: 
 
-```md
-AS A manager at an internet retail company
-I WANT a back end for my e-commerce website that uses the latest technologies
-SO THAT my company can compete with other e-commerce companies
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Environment Variables](#environment-variables)
+- [Endpoints](#endpoints)
+- [Contributing](#contributing)
+- [Questions](#questions)
+- [License](#license)
+
+## Installation
+
+Before installing project dependencies, make sure you have Node.js and npm (Node Package Manager) installed. You can download and install Node.js from [nodejs.org](https://nodejs.org/), which includes npm.
+
+To set up the project, clone the repository to your local machine using the following command:
+
+```bash
+git clone https://github.com/SideControlJS/e-commerce.git
 ```
 
-## Acceptance Criteria
+Navigate to the project directory:
+```bash
+cd your-repo-name
 
-```md
-GIVEN a functional Express.js API
-WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
-THEN I am able to connect to a database using Sequelize
-WHEN I enter schema and seed commands
-THEN a development database is created and is seeded with test data
-WHEN I enter the command to invoke the application
-THEN my server is started and the Sequelize models are synced to the MySQL database
-WHEN I open API GET routes in Insomnia for categories, products, or tags
-THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I test API POST, PUT, and DELETE routes in Insomnia
-THEN I am able to successfully create, update, and delete data in my database
+npm install express sequelize mysql2 dotenv
+
+```
+If you need to install additional dependencies that are specified in your package.json file, simply run:
+```bash
+npm install
+
 ```
 
-## Mock-Up
+## Usage
 
-The following animation shows the application's GET routes to return all categories, all products, and all tags being tested in Insomnia:
+To starte the server, run: "node server.js"
 
-![In Insomnia, the user tests “GET tags,” “GET Categories,” and “GET All Products.”.](./Assets/13-orm-homework-demo-01.gif)
+Ensure that you have MySQL installed and running before attempting to connect to your database. Use the schema.sql file in the db folder to set up your database using MySQL shell commands.
 
-The following animation shows the application's GET routes to return a single category, a single product, and a single tag being tested in Insomnia:
+## Environment Variables
 
-![In Insomnia, the user tests “GET tag by id,” “GET Category by ID,” and “GET One Product.”](./Assets/13-orm-homework-demo-02.gif)
+Create a `.env` file in the root directory with the following variables:
+DB_NAME='ecommerce_db'
+DB_USER='your_mysql_username'
+DB_PW='your_mysql_password'
 
-The following animation shows the application's POST, PUT, and DELETE routes for categories being tested in Insomnia:
 
-![In Insomnia, the user tests “DELETE Category by ID,” “CREATE Category,” and “UPDATE Category.”](./Assets/13-orm-homework-demo-03.gif)
+## Endpoints
 
-Your walkthrough video should also show the POST, PUT, and DELETE routes for products and tags being tested in Insomnia.
-
-## Getting Started
-
-This Challenge will require a video submission. Refer to the [Fullstack Blog Video Submission Guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) for additional guidance on creating a video.
-
-You’ll need to use the [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect your Express.js API to a MySQL database and the [dotenv](https://www.npmjs.com/package/dotenv) package to use environment variables to store sensitive data.
-
-Use the `schema.sql` file in the `db` folder to create your database with MySQL shell commands. Use environment variables to store sensitive data like your MySQL username, password, and database name.
-
-### Database Models
-
-Your database should contain the following four models, including the requirements listed for each model:
-
-* `Category`
-
-  * `id`
-
-    * Integer.
+- `GET /api/categories` - Retrieves all categories.
+- `GET /api/categories/:id` - Retrieves a category by ID.
+- `POST /api/categories` - Creates a new category.
+- `PUT /api/categories/:id` - Updates a category by ID.
+- `DELETE /api/categories/:id` - Deletes a category by ID.
   
-    * Doesn't allow null values.
-  
-    * Set as primary key.
-  
-    * Uses auto increment.
+Repeat for products and tags...
 
-  * `category_name`
-  
-    * String.
-  
-    * Doesn't allow null values.
+## Contributing
 
-* `Product`
+To contribute to this project, please make a pull request or contact me.
 
-  * `id`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set as primary key.
-  
-    * Uses auto increment.
 
-  * `product_name`
-  
-    * String.
-  
-    * Doesn't allow null values.
+## Questions
 
-  * `price`
-  
-    * Decimal.
-  
-    * Doesn't allow null values.
-  
-    * Validates that the value is a decimal.
+For any questions about the project, please contact the project owner at [email](mailto:twelvedust@outlook.com).
 
-  * `stock`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set a default value of `10`.
-  
-    * Validates that the value is numeric.
+## License
 
-  * `category_id`
-  
-    * Integer.
-  
-    * References the `Category` model's `id`.
-
-* `Tag`
-
-  * `id`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set as primary key.
-  
-    * Uses auto increment.
-
-  * `tag_name`
-  
-    * String.
-
-* `ProductTag`
-
-  * `id`
-
-    * Integer.
-
-    * Doesn't allow null values.
-
-    * Set as primary key.
-
-    * Uses auto increment.
-
-  * `product_id`
-
-    * Integer.
-
-    * References the `Product` model's `id`.
-
-  * `tag_id`
-
-    * Integer.
-
-    * References the `Tag` model's `id`.
-
-### Associations
-
-You'll need to execute association methods on your Sequelize models to create the following relationships between them:
-
-* `Product` belongs to `Category`, and `Category` has many `Product` models, as a category can have multiple products but a product can only belong to one category.
-
-* `Product` belongs to many `Tag` models, and `Tag` belongs to many `Product` models. Allow products to have multiple tags and tags to have many products by using the `ProductTag` through model.
-
-> **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
-
-### Fill Out the API Routes to Perform RESTful CRUD Operations
-
-Fill out the unfinished routes in `product-routes.js`, `tag-routes.js`, and `category-routes.js` to perform create, read, update, and delete operations using your Sequelize models.
-
-Note that the functionality for creating the many-to-many relationship for products has already been completed for you.
-
-> **Hint**: Be sure to look at the mini-project code for syntax help and use your model's column definitions to figure out what `req.body` will be for POST and PUT routes!
-
-### Seed the Database
-
-After creating the models and routes, run `npm run seed` to seed data to your database so that you can test your routes.
-
-### Sync Sequelize to the Database on Server Start
-
-Create the code needed in `server.js` to sync the Sequelize models to the MySQL database on server start.
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria: 
-
-### Deliverables: 10%
-
-* The GitHub repository containing your application code.
-
-### Walkthrough Video: 37%
-
-* A walkthrough video that demonstrates the functionality of the e-commerce back end must be submitted, and a link to the video should be included in your readme file.
-
-* The walkthrough video must show all of the technical acceptance criteria being met.
-
-* The walkthrough video must demonstrate how to create the schema from the MySQL shell.
-
-* The walkthrough video must demonstrate how to seed the database from the command line.
-
-* The walkthrough video must demonstrate how to start the application’s server.
-
-* The walkthrough video must demonstrate GET routes for all categories, all products, and all tags being tested in Insomnia.
-
-* The walkthrough video must demonstrate GET routes for a single category, a single product, and a single tag being tested in Insomnia.
-
-* The walkthrough video must demonstrate POST, PUT, and DELETE routes for categories, products, and tags being tested in Insomnia.
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Connects to a MySQL database using the [MySQL2](https://www.npmjs.com/package/mysql) and [Sequelize](https://www.npmjs.com/package/sequelize) packages.
-
-  * Stores sensitive data, like a user’s MySQL username, password, and database name, using environment variables through the [dotenv](https://www.npmjs.com/package/dotenv) package.
-
-  * Syncs Sequelize models to a MySQL database on the server start.
-
-  * Includes column definitions for all four models outlined in the Challenge instructions.
-
-  * Includes model associations outlined in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a readme describing the project.
+This project is licensed under the [MIT license](LICENSE).
 
 ---
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+© 2023 Jesse Lare. All Rights Reserved.
