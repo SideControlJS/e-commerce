@@ -25,7 +25,7 @@ Throughout the development process, Insomnia REST Client was utilized extensivel
 
 By leveraging the ORM approach, this project demonstrates the efficient management of database schemas and streamlines the process of querying and manipulating data in a relational database.
 
-Watch the demo video here: ![Demo Video](https://watch.screencastify.com/v/FqmeNqnx7JbMBXMEBqpd)
+Watch the demo video here: [![Demo Video]({https://watch.screencastify.com/v/FqmeNqnx7JbMBXMEBqpd})]({https://drive.google.com/file/d/18kwxFEaapI5ISDCso_WFf31WOLlAfPJe/view?usp=sharing} "Demo Video")
 
 
 ## Table of Contents
