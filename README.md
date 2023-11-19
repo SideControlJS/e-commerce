@@ -84,7 +84,7 @@ To contribute to this project, please make a pull request or contact me.
 
 ## Questions
 
-For any questions about the project, please contact the project owner at [email](mailto:twelvedust@outlook.com).
+For any questions about the project, please contact me at my [email](mailto:twelvedust@outlook.com).
 
 ## License
 
