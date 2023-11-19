@@ -3,7 +3,7 @@
 # Project Title
 <!-- Badges for version -->
 <!-- Badges for license -->
-![License](https://img.shields.io/github/MIT/SideControlJS/e-commerce.svg)
+![MIT](https://img.shields.io/github/license/SideControlJS/e-commerce.svg)
 
 ![GitHub package version](https://img.shields.io/github/package-json/v/SideControlJS/e-commerce.svg)
 
