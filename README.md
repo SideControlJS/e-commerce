@@ -99,6 +99,9 @@ Create a `.env` file in the root directory with the following variables:
 ![Contributors](https://img.shields.io/github/contributors/SideControlJS/e-commerce.svg)
 To contribute to this project, please make a pull request or contact me.
 
+Screenshot of source code:
+![Source Code](/Assets/code_source_screenshot.png)
+
 
 ## Questions
 
