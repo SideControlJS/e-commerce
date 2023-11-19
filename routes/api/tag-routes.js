@@ -20,8 +20,8 @@ router.get('/', asyncHandler(async (req, res) => {
 
 
 //GET a single tag by its ID
-router.get('/:id', asyncHandler(async (res, req) => {
-  const tag = await Tag.findAll({
+router.get('/:id', asyncHandler(async (req, res) => {
+  const tag = await Tag.findOne({
     where: { id: req.params.id },
     include: [{
       model: Product,
@@ -47,8 +47,8 @@ router.post('/', asyncHandler(async (req, res) => {
 }));
 
 
-//PUT to update a tage by its ID
-router.get('/:id', asyncHandler(async (req, res) => {
+//PUT to update a tag by its ID
+router.put('/:id', asyncHandler(async (req, res) => {
   const [affectedRows] = await Tag.update(req.body, {
     where: { id: req.params.id },
   });
@@ -75,13 +75,10 @@ router.delete('/:id', asyncHandler(async (req, res) => {
 }));
 
 
-//General error handler
+//Generic error handler
 router.use((err, req, res, next) => {
-  console.errot(err);
-  res.status(500).json({
-    message: 'An error occurred! :(',
-    error: err.message
-  });
+  console.error(err);
+  res.status(500).json({ message: 'An error occurred! :(', error: err.message });
 });
 
 

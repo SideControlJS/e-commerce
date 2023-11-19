@@ -76,7 +76,7 @@ router.delete('/:id', asyncHandler(async (req, res) => {
 
 // General error handler
 router.use((err, req, res, next) => {
-  console.errot(err);
+  console.error(err);
   res.status(500).json({
     message: 'An error occurred! :(',
     error: err.message
