@@ -1,23 +1,14 @@
 # E-Commerce Backend
 
 # Project Title
-<!-- Badges for build status -->
-![Build Status](https://img.shields.io/travis/SideControlJS/e-commerce/master.svg)
-
 <!-- Badges for version -->
 ![GitHub package version](https://img.shields.io/github/package-json/v/SideControlJS/e-commerce.svg)
-
-<!-- Badges for license -->
-![License](https://img.shields.io/github/license/SideControlJS/e-commerce.svg)
-
-<!-- Badges for dependency status -->
-![Dependencies](https://img.shields.io/david/SideControlJS/e-commerce.svg)
 
 <!-- Badges for code size -->
 ![Code Size](https://img.shields.io/github/languages/code-size/SideControlJS/e-commerce.svg)
 
 <!-- Badges for last commit -->
-![Last Commit](https://img.shields.io/github/last-commit/your-username/your-repo-name.svg)
+![Last Commit](https://img.shields.io/github/last-commit/SideControlJS/e-commerce.svg)
 
 <!-- Badges for social -->
 ![Stars](https://img.shields.io/github/stars/SideControlJS/e-commerce.svg?style=social)
